@@ -4,6 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Abdallah Magdy | Data Analyst &amp; BI</title>
+  <!-- شعار التبويب بدل أيقونة الكوكب -->
+  <link rel="icon" type="image/png" href="logo.png" />
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -13,6 +15,37 @@
       color: #0f172a;
       padding: 40px 20px;
     }
+
+    /* شاشة عرض الشعار عند دخول الصفحة */
+    .splash-screen {
+      position: fixed;
+      inset: 0;
+      background: #ffffff;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+      z-index: 9999;
+      transition: opacity 0.45s ease, visibility 0.45s ease;
+    }
+    .splash-screen.hide {
+      opacity: 0;
+      visibility: hidden;
+    }
+    .splash-screen img {
+      width: 96px;
+      height: 96px;
+      object-fit: contain;
+    }
+    .splash-text {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.4px;
+      color: #2563eb;
+      text-transform: uppercase;
+    }
+
     .page-wrap {
       max-width: 1120px;
       margin: 0 auto;
@@ -160,7 +193,6 @@
       box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04);
     }
 
-    /* عناوين الأقسام المشتركة */
     .section-kicker {
       font-size: 13px;
       font-weight: 700;
@@ -175,7 +207,6 @@
       margin-bottom: 22px;
     }
 
-    /* قسم About / Professional Summary */
     .about-section {
       margin-bottom: 65px;
     }
@@ -195,7 +226,6 @@
       margin-top: 16px;
     }
 
-    /* قسم Skills / Technical Toolkit */
     .skills-section {
       margin-bottom: 70px;
     }
@@ -229,7 +259,6 @@
       line-height: 1.85;
     }
 
-    /* قسم المشاريع */
     .projects-section {
       padding-top: 10px;
     }
@@ -323,8 +352,13 @@
   </style>
 </head>
 <body>
+  <!-- شاشة الشعار عند فتح الصفحة -->
+  <div class="splash-screen" id="splash">
+    <img src="logo.png" alt="Logo" />
+    <div class="splash-text">Abdallah Magdy | Data &amp; BI</div>
+  </div>
+
   <div class="page-wrap">
-    <!-- الجزء الأول: Hero -->
     <section class="hero">
       <div>
         <div class="status-pill">
@@ -369,7 +403,6 @@
       </div>
     </section>
 
-    <!-- About / Professional Summary -->
     <section class="about-section" id="about">
       <div class="section-kicker">ABOUT</div>
       <h2 class="section-title">Professional Summary</h2>
@@ -383,7 +416,6 @@
       </div>
     </section>
 
-    <!-- SKILLS / Technical Toolkit -->
     <section class="skills-section" id="skills">
       <div class="section-kicker">SKILLS</div>
       <h2 class="section-title">Technical Toolkit</h2>
@@ -431,7 +463,6 @@
       </div>
     </section>
 
-    <!-- قسم المشاريع -->
     <section class="projects-section" id="projects">
       <div class="section-kicker">PORTFOLIO SHOWCASE</div>
       <h2 class="section-title">Featured Analytics &amp; BI Projects</h2>
@@ -489,5 +520,16 @@
       </div>
     </section>
   </div>
+
+  <script>
+    window.addEventListener("load", function () {
+      setTimeout(function () {
+        var splash = document.getElementById("splash");
+        if (splash) {
+          splash.classList.add("hide");
+        }
+      }, 1100);
+    });
+  </script>
 </body>
 </html>
