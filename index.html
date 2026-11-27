@@ -8,7 +8,7 @@
     * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: Arial, sans-serif;
-      background: linear-gradient(135deg, #eef4ff 0%, #f8fafc 60%, #e6f0ff 100%);
+      background: radial-gradient(circle at top right, #dbeafe 0%, #f8fafc 45%, #eef2ff 100%);
       color: #0f172a;
       min-height: 100vh;
       padding: 40px 20px;
@@ -29,13 +29,14 @@
       align-items: center;
       gap: 8px;
       background: #ffffff;
-      border: 1px solid #dbeafe;
-      color: #1d4ed8;
+      border: 1px solid #bfdbfe;
+      color: #1e40af;
       font-size: 13px;
       font-weight: 600;
       padding: 7px 14px;
       border-radius: 999px;
       margin-bottom: 16px;
+      box-shadow: 0 4px 12px rgba(37, 99, 235, 0.06);
     }
     .dot {
       width: 8px;
@@ -83,6 +84,7 @@
     .btn-primary {
       background: #2563eb;
       color: #ffffff;
+      box-shadow: 0 8px 20px rgba(37, 99, 235, 0.22);
     }
     .btn-secondary {
       background: #ffffff;
@@ -100,7 +102,8 @@
       background: #ffffff;
       padding: 14px;
       border-radius: 26px;
-      box-shadow: 0 18px 40px rgba(15, 23, 42, 0.08);
+      box-shadow: 0 20px 45px rgba(15, 23, 42, 0.12);
+      border: 1px solid rgba(255, 255, 255, 0.9);
       max-width: 380px;
       width: 100%;
     }
@@ -108,7 +111,7 @@
       width: 100%;
       height: 410px;
       object-fit: cover;
-      object-position: top;
+      object-position: 50% 15%;
       background: #ffffff;
       border-radius: 20px;
       display: block;
@@ -118,7 +121,8 @@
       background: #ffffff;
       padding: 10px 14px;
       border-radius: 12px;
-      box-shadow: 0 10px 24px rgba(15, 23, 42, 0.12);
+      box-shadow: 0 12px 28px rgba(15, 23, 42, 0.14);
+      border: 1px solid #f1f5f9;
       font-size: 12px;
       line-height: 1.35;
     }
@@ -152,6 +156,7 @@
       font-weight: 600;
       padding: 6px 12px;
       border-radius: 8px;
+      box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04);
     }
     @media (max-width: 860px) {
       .hero {
