@@ -19,6 +19,7 @@
       --soft-pill-text: #5b21b6;
       --border: #e9d5ff;
       --shadow: 0 16px 38px rgba(109, 40, 217, 0.08);
+      --shadow-hover: 0 22px 45px rgba(109, 40, 217, 0.16);
     }
 
     body.dark {
@@ -34,6 +35,7 @@
       --soft-pill-text: #ddd6fe;
       --border: #3b3355;
       --shadow: 0 18px 40px rgba(0, 0, 0, 0.35);
+      --shadow-hover: 0 24px 50px rgba(139, 92, 246, 0.22);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -44,6 +46,16 @@
       color: var(--text-main);
       min-height: 100vh;
       transition: background 0.3s ease, color 0.3s ease;
+    }
+
+    /* حركة الكروت العائمة حوالين الصورة */
+    @keyframes floatBadge {
+      0%, 100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-8px);
+      }
     }
 
     /* الشريط العلوي */
@@ -196,20 +208,23 @@
       display: inline-flex;
       align-items: center;
       gap: 8px;
-      transition: transform 0.2s ease, background 0.2s ease;
+      transition: transform 0.22s ease, background 0.22s ease, border-color 0.22s ease;
     }
     .btn-primary {
       background: linear-gradient(135deg, var(--primary), var(--primary-dark));
       color: #ffffff;
       box-shadow: 0 10px 22px rgba(109, 40, 217, 0.25);
     }
-    .btn-primary:hover { transform: translateY(-1px); }
+    .btn-primary:hover { transform: translateY(-2px); }
     .btn-secondary {
       background: var(--surface-solid);
       color: var(--text-main);
       border: 1px solid var(--border);
     }
-    .btn-secondary:hover { border-color: var(--primary); }
+    .btn-secondary:hover {
+      border-color: var(--primary);
+      transform: translateY(-2px);
+    }
 
     .stats-row {
       display: flex;
@@ -230,7 +245,7 @@
       font-weight: 500;
     }
 
-    /* صورة البورتريه */
+    /* صورة البورتريه والكروت العائمة */
     .profile-col {
       display: flex;
       flex-direction: column;
@@ -274,6 +289,12 @@
       align-items: center;
       gap: 10px;
       font-size: 12px;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      cursor: default;
+    }
+    .float-badge:hover {
+      border-color: var(--primary);
+      box-shadow: var(--shadow-hover);
     }
     .badge-icon {
       width: 28px;
@@ -286,8 +307,16 @@
       justify-content: center;
       font-weight: 800;
     }
-    .float-top { top: 28px; left: -20px; }
-    .float-bottom { bottom: 28px; right: -20px; }
+    .float-top {
+      top: 28px;
+      left: -20px;
+      animation: floatBadge 4.2s ease-in-out infinite;
+    }
+    .float-bottom {
+      bottom: 28px;
+      right: -20px;
+      animation: floatBadge 4.8s ease-in-out 0.9s infinite;
+    }
     .float-badge strong { display: block; font-size: 12.5px; }
     .float-badge span { font-size: 11px; color: var(--text-muted); }
 
@@ -307,6 +336,11 @@
       padding: 5px 11px;
       border-radius: 999px;
       white-space: nowrap;
+      transition: transform 0.2s ease, border-color 0.2s ease;
+    }
+    .tool-pill:hover {
+      transform: translateY(-2px);
+      border-color: var(--primary);
     }
 
     /* الأقسام */
@@ -343,6 +377,7 @@
     }
     .summary-card p + p { margin-top: 14px; }
 
+    /* كروت المهارات مع التفاعل الناعم */
     .toolkit-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(235px, 1fr));
@@ -354,10 +389,15 @@
       border-radius: 20px;
       padding: 24px 22px;
       box-shadow: var(--shadow);
+      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.28s ease,
+                  border-color 0.28s ease;
+      cursor: default;
     }
-    .skill-card.featured {
+    .skill-card:hover {
+      transform: translateY(-7px) scale(1.02);
       border-color: var(--primary);
-      box-shadow: 0 16px 34px rgba(109, 40, 217, 0.14);
+      box-shadow: var(--shadow-hover);
     }
     .skill-card h3 {
       font-size: 18px;
@@ -373,6 +413,7 @@
       line-height: 1.85;
     }
 
+    /* كروت المشاريع */
     .projects-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -387,6 +428,14 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.28s ease,
+                  border-color 0.28s ease;
+    }
+    .project-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-hover);
     }
     .project-thumb {
       width: 100%;
@@ -431,6 +480,12 @@
       border-radius: 20px;
       padding: 24px 28px;
       box-shadow: var(--shadow);
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .exp-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-hover);
     }
     .exp-role {
       font-size: 19px;
@@ -467,6 +522,14 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      transition: transform 0.28s cubic-bezier(0.22, 1, 0.36, 1),
+                  box-shadow 0.28s ease,
+                  border-color 0.28s ease;
+    }
+    .cert-doc-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-hover);
     }
     .cert-top-banner {
       background: linear-gradient(135deg, var(--primary) 0%, #4c1d95 65%, var(--accent) 160%);
@@ -626,6 +689,12 @@
       display: flex;
       align-items: flex-start;
       gap: 16px;
+      transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    }
+    .edu-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--primary);
+      box-shadow: var(--shadow-hover);
     }
     .edu-icon {
       width: 44px;
@@ -667,13 +736,13 @@
     }
     .contact-item:hover {
       border-color: var(--primary);
-      transform: translateY(-1px);
+      transform: translateY(-2px);
     }
 
     @media (max-width: 900px) {
       .hero { grid-template-columns: 1fr; }
       h1 { font-size: 38px; }
-      .float-top, .float-bottom { position: static; margin-top: 10px; }
+      .float-top, .float-bottom { position: static; margin-top: 10px; animation: none; }
       .page-wrap { padding: 24px 20px 60px; }
       .navbar { padding: 12px 20px; }
     }
@@ -794,7 +863,7 @@
             <li>Data Visualization</li>
           </ul>
         </div>
-        <div class="skill-card featured">
+        <div class="skill-card">
           <h3>Database &amp; ETL</h3>
           <ul>
             <li>SQL Server &amp; SSMS</li>
@@ -887,7 +956,7 @@
         </div>
         <div class="exp-card">
           <div class="exp-role">Operational &amp; Data Coordination Experience</div>
-          <div class="exp-meta">Operations & Reporting Workflow • Egypt</div>
+          <div class="exp-meta">Operations &amp; Reporting Workflow &bull; Alexandria, Egypt</div>
           <ul>
             <li>Managed structured operational records, organized reporting workflows, and improved accuracy across data outputs.</li>
             <li>Collaborated with teams to standardize reporting formats and support timely decision-making.</li>
