@@ -6,23 +6,24 @@
   <title>Abdallah Magdy | Data Analyst &amp; BI</title>
   <style>
     * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
     body {
       font-family: Arial, sans-serif;
       background: radial-gradient(circle at top right, #dbeafe 0%, #f8fafc 45%, #eef2ff 100%);
       color: #0f172a;
-      min-height: 100vh;
       padding: 40px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
+    }
+    .page-wrap {
+      max-width: 1120px;
+      margin: 0 auto;
     }
     .hero {
-      max-width: 1120px;
-      width: 100%;
+      min-height: 85vh;
       display: grid;
       grid-template-columns: 1.15fr 0.85fr;
       gap: 40px;
       align-items: center;
+      margin-bottom: 60px;
     }
     .status-pill {
       display: inline-flex;
@@ -158,6 +159,155 @@
       border-radius: 8px;
       box-shadow: 0 4px 10px rgba(15, 23, 42, 0.04);
     }
+
+    /* عناوين الأقسام المشتركة */
+    .section-kicker {
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      color: #2563eb;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .section-title {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 22px;
+    }
+
+    /* قسم About / Professional Summary */
+    .about-section {
+      margin-bottom: 65px;
+    }
+    .summary-card {
+      background: rgba(255, 255, 255, 0.92);
+      border: 1px solid #bfdbfe;
+      border-radius: 18px;
+      padding: 28px 30px;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.05);
+    }
+    .summary-card p {
+      font-size: 15px;
+      line-height: 1.75;
+      color: #475569;
+    }
+    .summary-card p + p {
+      margin-top: 16px;
+    }
+
+    /* قسم Skills / Technical Toolkit */
+    .skills-section {
+      margin-bottom: 70px;
+    }
+    .toolkit-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+    .skill-card {
+      background: rgba(255, 255, 255, 0.94);
+      border: 1px solid #e2e8f0;
+      border-radius: 18px;
+      padding: 24px 22px;
+      box-shadow: 0 10px 25px rgba(15, 23, 42, 0.05);
+    }
+    .skill-card.featured {
+      border-color: #93c5fd;
+      box-shadow: 0 14px 30px rgba(37, 99, 235, 0.09);
+    }
+    .skill-card h3 {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 16px;
+      color: #0f172a;
+    }
+    .skill-card ul {
+      list-style: disc;
+      padding-left: 18px;
+      color: #475569;
+      font-size: 14px;
+      line-height: 1.85;
+    }
+
+    /* قسم المشاريع */
+    .projects-section {
+      padding-top: 10px;
+    }
+    .section-sub {
+      color: #475569;
+      font-size: 15px;
+      margin-top: -12px;
+      margin-bottom: 26px;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+    }
+    .project-card {
+      background: #ffffff;
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 12px 30px rgba(15, 23, 42, 0.08);
+      border: 1px solid #e2e8f0;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .project-thumb {
+      width: 100%;
+      height: 210px;
+      object-fit: cover;
+      background: #f1f5f9;
+      display: block;
+    }
+    .project-body {
+      padding: 20px;
+    }
+    .project-title {
+      font-size: 19px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+    .project-desc {
+      font-size: 14px;
+      line-height: 1.6;
+      color: #475569;
+      margin-bottom: 14px;
+    }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+      margin-bottom: 14px;
+    }
+    .tag {
+      background: #eff6ff;
+      color: #1d4ed8;
+      font-size: 12px;
+      font-weight: 600;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+    .project-note {
+      font-size: 13px;
+      color: #334155;
+      line-height: 1.55;
+    }
+    .project-footer {
+      padding: 0 20px 20px;
+    }
+    .card-btn {
+      display: inline-block;
+      background: #2563eb;
+      color: #ffffff;
+      text-decoration: none;
+      padding: 10px 16px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 700;
+    }
+
     @media (max-width: 860px) {
       .hero {
         grid-template-columns: 1fr;
@@ -173,48 +323,171 @@
   </style>
 </head>
 <body>
-  <section class="hero">
-    <div>
-      <div class="status-pill">
-        <span class="dot"></span>
-        <span>Available for freelance projects</span>
-      </div>
-      <div class="role">DATA &amp; BUSINESS INTELLIGENCE ANALYST</div>
-      <h1>From raw data pipelines to clear executive decisions.</h1>
-      <p class="bio">
-        I design structured data models, automate ETL workflows, and build interactive dashboards using SQL Server, SSIS, Python, Power BI, DAX, and Excel.
-      </p>
-      <div class="buttons">
-        <a class="btn-primary" href="#projects">View My Projects &rarr;</a>
-        <a class="btn-secondary" href="cv.pdf" download>Download CV &darr;</a>
-      </div>
-      <div class="buttons">
-        <a class="btn-secondary" href="#certifications">View Certifications &#9733;</a>
-      </div>
-    </div>
-
-    <div class="profile-col">
-      <div class="photo-card">
-        <img src="Abdallah.png" alt="Abdallah Photo" />
-        <div class="float-badge float-top">
-          <strong>Actionable Insights</strong>
-          <span>From complex datasets</span>
+  <div class="page-wrap">
+    <!-- الجزء الأول: Hero -->
+    <section class="hero">
+      <div>
+        <div class="status-pill">
+          <span class="dot"></span>
+          <span>Available for freelance projects</span>
         </div>
-        <div class="float-badge float-bottom">
-          <strong>Power BI &amp; Excel</strong>
-          <span>Interactive dashboards</span>
+        <div class="role">DATA &amp; BUSINESS INTELLIGENCE ANALYST</div>
+        <h1>From raw data pipelines to clear executive decisions.</h1>
+        <p class="bio">
+          I design structured data models, automate ETL workflows, and build interactive dashboards using SQL Server, SSIS, Python, Power BI, DAX, and Excel.
+        </p>
+        <div class="buttons">
+          <a class="btn-primary" href="#projects">View My Projects &rarr;</a>
+          <a class="btn-secondary" href="cv.pdf" download>Download CV &darr;</a>
+        </div>
+        <div class="buttons">
+          <a class="btn-secondary" href="#certifications">View Certifications &#9733;</a>
         </div>
       </div>
 
-      <div class="tools-row">
-        <span class="tool-pill">Power BI</span>
-        <span class="tool-pill">SQL</span>
-        <span class="tool-pill">Python</span>
-        <span class="tool-pill">DAX</span>
-        <span class="tool-pill">Power Query</span>
-        <span class="tool-pill">Excel</span>
+      <div class="profile-col">
+        <div class="photo-card">
+          <img src="Abdallah.png" alt="Abdallah Photo" />
+          <div class="float-badge float-top">
+            <strong>Actionable Insights</strong>
+            <span>From complex datasets</span>
+          </div>
+          <div class="float-badge float-bottom">
+            <strong>Power BI &amp; Excel</strong>
+            <span>Interactive dashboards</span>
+          </div>
+        </div>
+
+        <div class="tools-row">
+          <span class="tool-pill">Power BI</span>
+          <span class="tool-pill">SQL</span>
+          <span class="tool-pill">Python</span>
+          <span class="tool-pill">DAX</span>
+          <span class="tool-pill">Power Query</span>
+          <span class="tool-pill">Excel</span>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
+
+    <!-- About / Professional Summary -->
+    <section class="about-section" id="about">
+      <div class="section-kicker">ABOUT</div>
+      <h2 class="section-title">Professional Summary</h2>
+      <div class="summary-card">
+        <p>
+          Results-driven Data Analyst &amp; BI Developer specializing in transforming complex operational datasets into structured data models and clear executive dashboards. Proficient in SQL Server, SSIS, Python, Excel, Power Query, Power BI, DAX, and Star Schema data warehousing.
+        </p>
+        <p>
+          Experienced in designing automated ETL workflows, writing optimized SQL queries and custom DAX measures, and uncovering actionable business insights across sales, operations, and performance analytics.
+        </p>
+      </div>
+    </section>
+
+    <!-- SKILLS / Technical Toolkit -->
+    <section class="skills-section" id="skills">
+      <div class="section-kicker">SKILLS</div>
+      <h2 class="section-title">Technical Toolkit</h2>
+
+      <div class="toolkit-grid">
+        <div class="skill-card">
+          <h3>Business Intelligence</h3>
+          <ul>
+            <li>Power BI &amp; DAX</li>
+            <li>Interactive Dashboards</li>
+            <li>KPI Architecture</li>
+            <li>Data Visualization</li>
+          </ul>
+        </div>
+
+        <div class="skill-card featured">
+          <h3>Database &amp; ETL</h3>
+          <ul>
+            <li>MS SQL Server (SSMS)</li>
+            <li>SSIS ETL Pipelines</li>
+            <li>Data Cleaning &amp; Staging</li>
+            <li>Power Query</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Data Modeling</h3>
+          <ul>
+            <li>Star Schema Architecture</li>
+            <li>Fact &amp; Dimension Tables</li>
+            <li>Surrogate Key Lookups</li>
+            <li>Table Relationships</li>
+          </ul>
+        </div>
+
+        <div class="skill-card">
+          <h3>Programming &amp; Excel</h3>
+          <ul>
+            <li>Python (Data Analysis)</li>
+            <li>Advanced Excel &amp; Power Pivot</li>
+            <li>REST API Integration</li>
+            <li>VBA &amp; Automation</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- قسم المشاريع -->
+    <section class="projects-section" id="projects">
+      <div class="section-kicker">PORTFOLIO SHOWCASE</div>
+      <h2 class="section-title">Featured Analytics &amp; BI Projects</h2>
+      <p class="section-sub">End-to-end data modeling, ETL pipelines, and interactive reporting solutions.</p>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <div>
+            <img class="project-thumb" src="project1.png" alt="Project 1 Dashboard" />
+            <div class="project-body">
+              <h3 class="project-title">Language Institute ERP &amp; Data Warehouse</h3>
+              <p class="project-desc">
+                Built an end-to-end data warehouse and BI reporting solution using SQL Server, SSIS ETL packages, Star Schema modeling, and Power BI.
+              </p>
+              <div class="tags">
+                <span class="tag">SQL Server</span>
+                <span class="tag">SSIS</span>
+                <span class="tag">Star Schema</span>
+                <span class="tag">Power BI</span>
+                <span class="tag">DAX</span>
+              </div>
+              <p class="project-note">
+                <strong>Key Focus:</strong> Automated ETL loads, multi-page executive dashboards, and performance KPIs.
+              </p>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a class="card-btn" href="https://github.com/abdallahmgdy21-dot" target="_blank" rel="noopener">View Project on GitHub &rarr;</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div>
+            <img class="project-thumb" src="project2.png" alt="Project 2 Dashboard" />
+            <div class="project-body">
+              <h3 class="project-title">B2B Sales &amp; Strategic Decisions Dashboard</h3>
+              <p class="project-desc">
+                Analyzed sales trends, customer segments, product performance, and inventory health using Power Query, DAX measures, and interactive visuals.
+              </p>
+              <div class="tags">
+                <span class="tag">Power BI</span>
+                <span class="tag">Power Query</span>
+                <span class="tag">DAX</span>
+                <span class="tag">Excel</span>
+              </div>
+              <p class="project-note">
+                <strong>Key Focus:</strong> Revenue tracking, customer/product breakdowns, and operational health.
+              </p>
+            </div>
+          </div>
+          <div class="project-footer">
+            <a class="card-btn" href="https://github.com/abdallahmgdy21-dot/Power-BI-Sales-Dashboard" target="_blank" rel="noopener">View Project on GitHub &rarr;</a>
+          </div>
+        </article>
+      </div>
+    </section>
+  </div>
 </body>
 </html>
